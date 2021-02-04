@@ -1,5 +1,4 @@
 #include <iostream>
-#include <exception>
 #include "tictactoe.h"
 
 int main(int argv, char* argc[]) {
