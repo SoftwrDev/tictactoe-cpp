@@ -8,6 +8,7 @@ For now building is only available on linux.
 * Prerequisites
     > cmake
     > build-essential
+    > g++
 
     In order to build just type:
     ```
