@@ -1,3 +1,4 @@
+#include <tuple>
 #include "tictactoe.h"
 
 namespace TicTacToe {
@@ -76,5 +77,16 @@ namespace TicTacToe {
         #ifdef __linux__
             system("clear");
         #endif
+    }
+
+    std::tuple<std::string, std::string> parsePlay(const std::string& play) {
+        std::string delimiter = ",";
+        size_t row_t = play.find(delimiter, 0);
+        size_t start_t = row_t + delimiter.length();
+
+        std::string row = play.substr(0, play.find(delimiter, 0));
+        std::string column = play.substr(start_t, play.find(delimiter, 0));
+
+        return std::make_tuple(row, column);
     }
 };

@@ -57,6 +57,7 @@ namespace TicTacToe {
 
     
     void clearConsole();
+    std::tuple<std::string, std::string> parsePlay(const std::string& play);
 }
 
 

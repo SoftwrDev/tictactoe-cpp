@@ -1,4 +1,5 @@
 #include <iostream>
+#include <tuple>
 #include "tictactoe.h"
 
 int main(int argv, char* argc[]) {
@@ -11,12 +12,8 @@ int main(int argv, char* argc[]) {
         std::cin >> play;
         TicTacToe::clearConsole();
 
-        std::string delimiter = ",";
-        size_t row_t = play.find(delimiter, 0);
-        size_t start_t = row_t + delimiter.length();
-
-        std::string row = play.substr(0, play.find(delimiter, 0));
-        std::string column = play.substr(start_t, play.find(delimiter, 0));
+        std::string row, column;
+        std::tie(row, column) = TicTacToe::parsePlay(play);
 
         std::cout << "You played " << row << std::endl;
         std::cout << "You played " << column << std::endl;
