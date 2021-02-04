@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.16.3)
 
 project(TicTacToe)
 
-include(GoogleTest)
 add_library(lib_tictactoe ../src/tictactoe.cpp)
 
 add_executable(test main.cpp)
