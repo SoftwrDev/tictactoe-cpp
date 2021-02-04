@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/include/c++/9/",
-                "./includes"
+                "./includes",
+                "/usr/include/google_test"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
