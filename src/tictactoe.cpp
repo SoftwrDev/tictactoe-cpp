@@ -79,7 +79,7 @@ namespace TicTacToe {
         #endif
     }
 
-    std::tuple<std::string, std::string> parsePlay(const std::string& play) {
+    std::tuple<int, int> parsePlay(const std::string& play) {
         std::string delimiter = ",";
         size_t row_t = play.find(delimiter, 0);
         size_t start_t = row_t + delimiter.length();
@@ -87,6 +87,6 @@ namespace TicTacToe {
         std::string row = play.substr(0, play.find(delimiter, 0));
         std::string column = play.substr(start_t, play.find(delimiter, 0));
 
-        return std::make_tuple(row, column);
+        return std::make_tuple(std::atoi(row.c_str()), std::atoi(column.c_str()));
     }
 };

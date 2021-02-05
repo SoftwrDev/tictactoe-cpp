@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "foo/test_foo.cpp"
+#include "test_tictactoe.cpp"
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);

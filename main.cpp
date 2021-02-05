@@ -12,14 +12,14 @@ int main(int argv, char* argc[]) {
         std::cin >> play;
         TicTacToe::clearConsole();
 
-        std::string row, column;
+        int row, column;
         std::tie(row, column) = TicTacToe::parsePlay(play);
 
         std::cout << "You played " << row << std::endl;
         std::cout << "You played " << column << std::endl;
         
         try {
-            game.makePlay(std::atoi(row.c_str()), std::atoi(column.c_str()));
+            game.makePlay(row, column);
             std::cout << game.showBoard() << std::endl;
             game.changeTurn();
         } catch(TicTacToe::InvalidPlayException& err) {
