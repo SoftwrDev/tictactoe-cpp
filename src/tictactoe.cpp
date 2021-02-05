@@ -1,4 +1,5 @@
 #include <tuple>
+#include <regex>
 #include "tictactoe.h"
 
 namespace TicTacToe {
@@ -80,6 +81,14 @@ namespace TicTacToe {
     }
 
     std::tuple<int, int> parsePlay(const std::string& play) {
+        std::cmatch m;
+
+        std::regex_match(play.c_str(), m, std::regex("([1-3])\,([1-3])"));
+
+        if(m.size() == 0) {
+            throw InvalidPlayException();
+        }
+
         std::string delimiter = ",";
         size_t row_t = play.find(delimiter, 0);
         size_t start_t = row_t + delimiter.length();

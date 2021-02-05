@@ -25,3 +25,7 @@ test: clean
 	 ./test && \
 	 cd .. && \
 	 rm -r build
+
+.PHONY: debug
+debug:
+	@g++ -I includes -g src/tictactoe.cpp main.cpp

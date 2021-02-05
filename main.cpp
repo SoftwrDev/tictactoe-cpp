@@ -7,19 +7,20 @@ int main(int argv, char* argc[]) {
     
     while(game.isPlaying()) {
         std::cout << game.getCurrentPlaying() << std::endl;
+
         std::cout << "Type a row and column - ex: r,c: ";
         std::string play;
         std::cin >> play;
+        
         TicTacToe::clearConsole();
 
-        int row, column;
-        std::tie(row, column) = TicTacToe::parsePlay(play);
-
-        std::cout << "You played " << row << std::endl;
-        std::cout << "You played " << column << std::endl;
-        
         try {
+            int row, column;
+            std::tie(row, column) = TicTacToe::parsePlay(play);
+            std::cout << "You played " << row << std::endl;
+            std::cout << "You played " << column << std::endl;
             game.makePlay(row, column);
+        
             std::cout << game.showBoard() << std::endl;
             game.changeTurn();
         } catch(TicTacToe::InvalidPlayException& err) {
