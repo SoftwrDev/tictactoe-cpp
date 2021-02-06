@@ -4,7 +4,6 @@ on: push
 
 jobs:
 
-  name: Lint code base
   runs-on: ubuntu-latest
 
   steps:
