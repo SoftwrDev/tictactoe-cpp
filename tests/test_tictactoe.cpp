@@ -67,3 +67,19 @@ TEST(TicTacToe, finishGame) {
 
     ASSERT_EQ(game.getWinner(), "X wins!!");
 }
+
+TEST(TicTacToe, showBoard) {
+    TicTacToe::TicTacToe game;
+
+    ASSERT_EQ(game.showBoard(), " -  -  - \n -  -  - \n -  -  - \n");
+
+    game.makePlay(1, 1);
+    game.changeTurn();
+
+    ASSERT_EQ(game.showBoard(), " X  -  - \n -  -  - \n -  -  - \n");
+
+    game.makePlay(1, 2);
+    game.changeTurn();
+
+    ASSERT_EQ(game.showBoard(), " X  O  - \n -  -  - \n -  -  - \n");
+}
