@@ -21,11 +21,11 @@ int main(int argv, char* argc[]) {
             std::cout << "You played " << column << std::endl;
             game.makePlay(row, column);
         
-            std::cout << game.showBoard() << std::endl;
+            std::cout << game.showBoard();
             game.changeTurn();
         } catch(TicTacToe::InvalidPlayException& err) {
             std::cout << err.what() << std::endl;
-            std::cout << game.showBoard() << std::endl;
+            std::cout << game.showBoard();
         } 
         
     }

@@ -23,20 +23,13 @@ namespace TicTacToe {
 
     std::string TicTacToe::showBoard() {
         std::string boardRepresentation = "";
-        int column = 0;
-
+        
         for(int i = 0; i < this->getBoardLength(); i++) {
             for(int column = 0; column < 3; column++) {
-                if(this->board[i][column] == BOARD_EMPTY) {
-                    boardRepresentation.append(" - ");
-                    continue;
-                }
-                if(this->board[i][column] == BOARD_X) {
-                    boardRepresentation.append(" X ");
-                    continue;
-                }
-                if(this->board[i][column] == BOARD_O) {
-                    boardRepresentation.append(" O ");
+                if((this->board[i][column] == BOARD_X) || (this->board[i][column] == BOARD_O)) {
+                    boardRepresentation.append( 
+                        this->board[i][column] == BOARD_X ? " X ": " O "
+                    );
                     continue;
                 }
                 boardRepresentation.append(" - ");
@@ -44,7 +37,7 @@ namespace TicTacToe {
             boardRepresentation.append("\n");
         }
 
-        return boardRepresentation.substr(0, boardRepresentation.size() - 1);
+        return boardRepresentation;
     }
 
     std::string TicTacToe::getCurrentPlaying() {
