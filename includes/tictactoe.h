@@ -27,22 +27,25 @@ namespace TicTacToe {
             PlayOptions winner;          
               
             bool didGameEnd() {
-                if((board[0][0] != BOARD_EMPTY && board[0][0] == board[0][1] && board[0][1] == board[0][2]) 
-                || (board[1][0] != BOARD_EMPTY && board[1][0] == board[1][1]  && board[1][1] == board[1][2])
-                || (board[2][0] != BOARD_EMPTY && board[2][0] == board[2][1]  && board[2][1] == board[2][2])
-                
-                || (board[0][0] != BOARD_EMPTY && board[0][0] == board[1][0] && board[1][0] == board[2][0])
-                || (board[0][1] != BOARD_EMPTY && board[0][1] == board[1][1] && board[1][1] == board[2][1])
-                || (board[0][2] != BOARD_EMPTY && board[0][2] == board[1][2] && board[1][2] == board[2][2])
-                
-                || (board[0][0] != BOARD_EMPTY && board[0][0] == board[1][1] && board[1][1] == board[2][2])
-                || (board[0][2] != BOARD_EMPTY && board[0][2] == board[1][1] && board[1][1] == board[2][0])) 
-                {
-                    playing = false;
-                    winner = turn;
-                    return true;
+                bool winningScenarios[8] {
+                    board[0][0] != BOARD_EMPTY && board[0][0] == board[0][1] && board[0][1] == board[0][2],
+                    board[1][0] != BOARD_EMPTY && board[1][0] == board[1][1] && board[1][1] == board[1][2],
+                    board[2][0] != BOARD_EMPTY && board[2][0] == board[2][1] && board[2][1] == board[2][2],
+                    board[0][0] != BOARD_EMPTY && board[0][0] == board[1][0] && board[1][0] == board[2][0],
+                    board[0][1] != BOARD_EMPTY && board[0][1] == board[1][1] && board[1][1] == board[2][1],
+                    board[0][2] != BOARD_EMPTY && board[0][2] == board[1][2] && board[1][2] == board[2][2],
+                    board[0][0] != BOARD_EMPTY && board[0][0] == board[1][1] && board[1][1] == board[2][2],
+                    board[0][2] != BOARD_EMPTY && board[0][2] == board[1][1] && board[1][1] == board[2][0]
+                };
+
+                bool* search = std::find(std::begin(winningScenarios), std::end(winningScenarios), true);
+                if(search == std::end(winningScenarios)) {
+                    return false;
                 }
-                return false;
+                
+                playing = false;
+                winner = turn;
+                return true;
             }
 
         public:
