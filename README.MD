@@ -1,5 +1,7 @@
 # TicTacToe game
 
+[![Tests](https://github.com/SoftwrDev/tictactoe-cpp/workflows/tests/badge.svg)](https://github.com/SoftwrDev/tictactoe-cpp/actions)
+
 This is a project meant to reacreate a console version of tic-tac-toe using c++
 
 ## Build
