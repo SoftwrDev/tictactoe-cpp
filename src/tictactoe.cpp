@@ -60,6 +60,9 @@ namespace TicTacToe {
         row--;
         column--;
         if(row >= 0 && row <=2 && column >= 0 && column <= 2) {
+            if(board[row][column] != BOARD_EMPTY) {
+                throw InvalidPlayException();
+            }
             board[row][column] = turn == BOARD_X ? BOARD_X : BOARD_O;
             return;
         } 
@@ -83,7 +86,7 @@ namespace TicTacToe {
     std::tuple<int, int> parsePlay(const std::string& play) {
         std::cmatch m;
 
-        std::regex_match(play.c_str(), m, std::regex("([1-3])\,([1-3])"));
+        std::regex_match(play.c_str(), m, std::regex("([1-3]),([1-3])"));
 
         if(m.size() == 0) {
             throw InvalidPlayException();
