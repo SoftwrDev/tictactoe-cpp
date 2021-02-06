@@ -6,7 +6,7 @@ add_library(tictactoe ../src/tictactoe.cpp)
 
 add_executable(test main.cpp)
 
-include_directories(../includes /usr/include/google_test/)
+include_directories(../includes ./includes/google_test/)
 
 target_link_libraries(test PUBLIC gtest)
 target_link_libraries(test PUBLIC gtest_main)
