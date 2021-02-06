@@ -16,7 +16,6 @@ jobs:
           run: git clone https://github.com/google/googletest.git &&
                cd googletest &&
                sudo mkdir /usr/include/google_test &&
-               sudo ls /usr/include/google_test &&
                sudo cp -r googletest/include/gtest /usr/include/google_test &&
                mkdir build &&
                cd build && 
